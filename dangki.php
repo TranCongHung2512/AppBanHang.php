@@ -16,25 +16,25 @@ $numrow = mysqli_num_rows($data);
 if ($numrow > 0){
     $arr = [
 		'success' => false,
-		'message' => "Email da ton tai",
-		'result' => $result
+		'message' => "Email da ton tai"
 	];
+
 }else{
-//insert
+    //insert
         $query = 'INSERT INTO `user`(`email`, `pass`, `username`, `mobile`) VALUES ("'.$email.'","'.$pass.'","'.$username.'","'.$mobile.'", )';
         $data = mysqli_query($conn, $query);
 
         if ($data == true) {
 	        $arr = [
 		        'success' => true,
-                'message' => "thanh cong",
-                'result' => $result
+                'message' => "thanh cong"
+            
 	                ];
         }else{
             $arr = [
                 'success' => false,
-                'message' => " khong thanh cong",
-                'result' => $result
+                'message' => " khong thanh cong"
+                
 	                ];
         }
     }
