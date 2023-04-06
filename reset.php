@@ -21,14 +21,14 @@ while ($row = mysqli_fetch_assoc($data)) {
 if (empty($result)) {
     $arr = [
 		'success' => false,
-		'message' => "Mail khong chinh xac",
+		'message' => "Mail không chính xác",
 		'result' => $result
 	];
 }else{
     // send mail
         $email=($result[0]["email"]);
         $pass=($result[0]["pass"]);
-            $link="<a href='http://192.168.1.17/banhang/reset_pass.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
+            $link="<a href='http://192.168.1.21/banhang/reset_pass.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
                 
                 $mail = new PHPMailer();
                 $mail->CharSet =  "utf-8";
@@ -54,7 +54,7 @@ if (empty($result)) {
                 {
                     $arr = [
                         'success' => true,
-                        'message' => "Vui long kiem tra mail cua ban",
+                        'message' => "Vui lòng kiểm tra lại Mail của bạn",
                         'result' => $result
                     ];
                 }
@@ -62,8 +62,8 @@ if (empty($result)) {
                 {
                     $arr = [
                         'success' => false,
-                        'message' => "Gui mail khong thanh cong",
-                        'result' => $result
+                        'message' => "Gửi Mail không thành công",
+                        'result' => $mail->ErrorInfo
                     ];
                 }
 }
