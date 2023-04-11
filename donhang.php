@@ -9,7 +9,7 @@ $soluong =  $_POST['soluong'];
 $chitiet = $_POST['chitiet'];
 
 
-$query = 'INSERT INTO `donhang`( `iduser`, `diachi`, `sodienthoai`, `email`, `soluong`, `tongtien`) VALUES ('.$iduser.', "'.$diachi.'",  "'.$sdt.'",  "'.$email.'",  "'.$soluong.'",  "'.$tongtien.'")';
+$query = 'INSERT INTO `donhang`( `iduser`, `diachi`, `sodienthoai`, `email`, `soluong`, `tongtien`) VALUES ("'.$iduser.'", "'.$diachi.'",  "'.$sdt.'",  "'.$email.'",  "'.$soluong.'",  "'.$tongtien.'")';
 $data = mysqli_query($conn, $query); 
 
 if($data == true){
@@ -23,8 +23,7 @@ if($data == true){
     // co don hang 
         $chitiet = json_decode($chitiet, true);
         foreach($chitiet as $key => $value){
-            $truyvan = 'INSERT INTO `chitietdonhang`(`iddonhang`, `idsp`, `soluong`, `gia`) VALUES ('.$iddonhang["iddonhang"].', '.$value["idsp"].', '.$value["soluong"].', '.$value["giasp"].' )';
-            echo $truyvan;
+            $truyvan = 'INSERT INTO `chitietdonhang`(`iddonhang`, `idsp`, `soluong`, `gia`) VALUES ("'.$iddonhang["iddonhang"].'", "'.$value["idsp"].'", "'.$value["soluong"].'", "'.$value["giasp"].'")';
             $data = mysqli_query($conn, $truyvan); 
         }
 
@@ -44,7 +43,7 @@ if($data == true){
 
 }else{
     $arr = [
-		'success' => true,
+		'success' => false,
 		'message' => "khong thanh cong"
 	];
 
