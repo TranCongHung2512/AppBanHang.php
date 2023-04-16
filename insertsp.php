@@ -12,12 +12,12 @@ $loai = $_POST['loai'];
          if ($data == true) {
  	        $arr = [
 		        'success' => true,
-                'message' => "thanh cong"
+                'message' => "Thành công"
  	                ];
          }else{
              $arr = [
                  'success' => false,
-                 'message' => " khong thanh cong"
+                 'message' => "Không thành công"
  	                ];
          }
 
