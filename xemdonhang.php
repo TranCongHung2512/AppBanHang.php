@@ -3,7 +3,7 @@ include "connect.php";
 $iduser = $_POST['iduser'];
 
 
-$query = 'SELECT * FROM `donhang` WHERE `iduser` = '.$iduser.'ORDER BY id DESC';
+$query = 'SELECT * FROM `donhang` WHERE `iduser` = '.$iduser;
 $data = mysqli_query($conn, $query);
 $result = array();
 while ($row = mysqli_fetch_assoc($data)) {
