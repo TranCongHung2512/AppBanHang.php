@@ -1,7 +1,22 @@
 <?php  
+include "connect.php";
 $target_dir = "images/";  
-$target_file_name = $target_dir .basename($_FILES["file"]["name"]);  
-$response = array();  
+
+
+$query = "select max(id) as id from sanphammoi";
+$data = mysqli_query($conn, $query);
+$result = array();
+while ($row = mysqli_fetch_assoc($data)){
+    $result[] = ($row);
+    //code
+}
+
+if ($result[0]['id'] == null){
+   $name = 1;
+}else{
+   $name = ++$result[0]['id'];
+}
+$target_file_name = $target_dir .$name. ".jpg";  
 
 if (isset($_FILES["file"]))  
    {  
@@ -9,7 +24,8 @@ if (isset($_FILES["file"]))
       {  
         $arr = [
             'success' => true,
-            'message' => "Thành công"
+            'message' => "Thành công",
+            "name" => $name
                  ];  
       }  
    else  
