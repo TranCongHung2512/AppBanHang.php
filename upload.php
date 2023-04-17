@@ -16,7 +16,8 @@ if ($result[0]['id'] == null){
 }else{
    $name = ++$result[0]['id'];
 }
-$target_file_name = $target_dir .$name. ".jpg";  
+$name = $name. ".jpg";
+$target_file_name = $target_dir .$name;  
 
 if (isset($_FILES["file"]))  
    {  
