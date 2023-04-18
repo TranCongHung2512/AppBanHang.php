@@ -5,6 +5,9 @@ $pass = $_POST['pass'];
 $username = $_POST['username'];
 $mobile = $_POST['mobile'];
 $uid = $_POST['uid'];
+
+
+
 // check data
  $query = 'SELECT * FROM `user` WHERE `email` = "'.$email.'"';
  $data = mysqli_query($conn, $query);
@@ -14,12 +17,12 @@ $uid = $_POST['uid'];
  if ($numrow > 0){
      $arr = [
  		'success' => false,
- 		'message' => "Email da ton tai"
+ 		'message' => "Email đã tồn tại"
  	];
 
  }else{
     //insert
-        $query = 'INSERT INTO `user`(`email`, `pass`, `username`, `mobile`) VALUES ("'.$email.'","'.$pass.'","'.$username.'","'.$mobile.'")';
+        $query = 'INSERT INTO `user`(`email`, `pass`, `username`, `mobile`, `uid`) VALUES ("'.$email.'","'.$pass.'","'.$username.'","'.$mobile.'","'.$uid.'")';
         $data = mysqli_query($conn, $query);
 
          if ($data == true) {
@@ -32,9 +35,10 @@ $uid = $_POST['uid'];
              $arr = [
                  'success' => false,
                  'message' => " khong thanh cong"
-           
+                
  	                ];
          }
      }
+
  print_r(json_encode($arr));
 // ?>
