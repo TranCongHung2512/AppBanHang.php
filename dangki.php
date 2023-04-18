@@ -4,9 +4,7 @@ $email = $_POST['email'];
 $pass = $_POST['pass'];
 $username = $_POST['username'];
 $mobile = $_POST['mobile'];
-
-
-
+$uid = $_POST['uid'];
 // check data
  $query = 'SELECT * FROM `user` WHERE `email` = "'.$email.'"';
  $data = mysqli_query($conn, $query);
@@ -34,10 +32,9 @@ $mobile = $_POST['mobile'];
              $arr = [
                  'success' => false,
                  'message' => " khong thanh cong"
-                
+           
  	                ];
          }
      }
-
  print_r(json_encode($arr));
 // ?>
