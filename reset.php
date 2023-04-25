@@ -28,7 +28,7 @@ if (empty($result)) {
     // send mail
         $email=($result[0]["email"]);
         $pass=($result[0]["pass"]);
-            $link="<a href='http://192.168.1.6/banhang/reset_pass.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
+            $link="<a href='http://192.168.1.12/banhang/reset_pass.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
                 
                 $mail = new PHPMailer();
                 $mail->CharSet =  "utf-8";
@@ -36,15 +36,15 @@ if (empty($result)) {
                 // enable SMTP authentication
                 $mail->SMTPAuth = true;                  
                 // GMAIL username
-                $mail->Username = "hungtc.21it@vku.udn.vn";
+                $mail->Username = "tranconghung356@gmail.com";
                 // GMAIL password
-                $mail->Password = "kpwjbwleuoozloah"; // pass cua mail
+                $mail->Password = "vbchzdsezbslgurj"; // pass cua mail
                 $mail->SMTPSecure = "ssl";  
                 // sets GMAIL as the SMTP server
                 $mail->Host = "smtp.gmail.com";
                 // set the SMTP port for the GMAIL server
                 $mail->Port = "465";
-                $mail->From="hungtc.21it@vku.udn.vn"; // mail nguoi nhan
+                $mail->From="tranconghung356@gmail.com"; // mail nguoi nhan
                 $mail->FromName='App ban hang';
                 $mail->AddAddress($email, 'reciever_name');
                 $mail->Subject  =  'Reset Password';
@@ -71,3 +71,4 @@ print_r(json_encode($arr));
 
     
 ?>
+
